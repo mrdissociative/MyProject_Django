@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    </head>
+<body>
+    <nav class="bg-info">
+        <div class="container-fluid">
+        </div>
+    </nav>
+    <br>
+    <div class="col-md-3"></div>
+        <h1 class="text-primary" align="center"> <u>Society Welfare System</u></h1><br><br>
+
+        <hr style="border-top:1px dotted #000;"/>
+        {% block body %}
+        {% endblock %}
+    </>
+</body>
+</html>

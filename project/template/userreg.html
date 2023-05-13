@@ -1,0 +1,118 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+
+{% extends 'base.html' %}
+{% block body %}
+   <div class="topnav" >
+  <a href="{% url 'webpage' %}">Home</a>
+       <a class="active" href="{% url 'index' %}">User Login/Register</a>
+       <a href="about">About</a>
+    <a href="contact">Contact</a>
+    <a href="support">Support</a>
+    <a href="terms"> Terms and Conditions </a>
+
+</div>
+
+<div style="padding-right:16px">
+<center>
+<h3 class="text-primary" style="color:black" > <u>User Register Form</u> </h3>
+<form method="post">
+    {% csrf_token %}
+    <div class="col-md-2"></div>
+<center>
+    <div class="col-md-8">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="username" class="form-control" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="password" >Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="firstname">Firstname:</label>
+            <input type="text" id="firstname" name="firstname">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="lastname">Lastname:</label>
+            <input type="text" id="lastname" name="lastname">
+        </div>
+        <br>
+        <label>Gender:</label>
+    <select name="gender">
+    <option value="--select--">--select--</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="others">Others</option>
+</select><br><br>
+        <label>Date of Birth:</label>
+        <input type="date" name="date">
+<br><br>
+<label>Phone :</label>
+<input type="text" name="country code"  value="+91" size="2">
+<input type="text" name="phone" size="10"> <br> <br>
+<label>Address:</label>
+<br>
+<textarea cols="50" rows="3" name="address">
+</textarea>
+<br> <br>
+Email:
+<input type="email" id="email" name="email"> <br>
+<br> <br>
+Aadhar number:
+    <input type="number" name="aadharnumber"><br><br>
+        <div class="form-group">
+            <button type="submit" > Register</button>
+ <p>Already have an account? <a href="{% url 'login' %}">Sign in</a>.</p>
+            <br><br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+</form>
+<div class="header-social wthree">
+							<ul>
+								<li><a href="#" class="f"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a></li>
+								<li><a href="#" class="t"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a></li>
+								<li><a href="#" class="g"><i class="fa fa-google-plus" aria-hidden="true"></i>Google+</a></li>
+							</ul>
+					</div>
+</center>
+<br><br>
+</center>

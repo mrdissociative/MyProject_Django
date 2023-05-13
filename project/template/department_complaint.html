@@ -1,0 +1,10 @@
+<h1>Complaints for {{ department }}</h1>
+
+{% for complaint in complaints %}
+    <div>
+        <h2>{{ complaint.firstname }} {{ complaint.lastname }}</h2>
+        <p>{{ complaint.issue }}</p>
+    </div>
+{% empty %}
+    <p>No complaints found for {{ department }}</p>
+{% endfor %}

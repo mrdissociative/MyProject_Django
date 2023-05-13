@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+</style>
+</head>
+{% extends 'base.html' %}
+{% block body %}
+<body>
+<div class="topnav">
+    <a href="{% url 'webpage' %}">Home</a>
+    <a class="active" href="userview">Department Home</a>
+    <a href="complaintview">Complaints</a>
+
+    <a href="about">About</a>
+    <a href="contact">Contact</a>
+    <a  href="support">Support</a>
+    <a href="terms"> Terms and Conditions </a>
+     <a href="deplogout">Logout</a>
+
+    <div style="padding-left:16px">
+</div>
+</div>
+<form method="post" action="userview" enctype="multipart/form-data">
+<h2 align="center">User List </h2>
+
+<table border="1" align="center">
+
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+    <th>Address</th>
+    <th>Aadhar Number</th>
+    <th>Remark</th>
+</tr>
+{% for i in data %}
+<tr>
+        <td align="center">{{ i.firstname }} {{ i.lastname }}</td>
+        <td align="center">{{ i.phone }}</td>
+        <td><a href="mailto:someone@example.com">{{ i.email }}</a></td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.gender }}</td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.aadharnumber }}</td>
+    <td><a href="Report">Report</a> </td>
+</tr>
+
+{% endfor %}
+</table>
+
+</form>
+
+</body>
+{% endblock %}
+</html>

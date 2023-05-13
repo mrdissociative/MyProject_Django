@@ -1,0 +1,109 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+{% extends 'base.html' %}
+{% block body %}
+<div class="topnav" >
+  <a href="{% url 'webpage' %}">Home</a>
+    <a class="active" href="{% url 'adreg' %}">Department Login/Register </a>
+    <a href="about">About</a>
+    <a href="contact">Contact</a>
+    <a href="support">Support</a>
+    <a href="terms"> Terms and Conditions </a>
+
+</div>
+<center>
+<div style="padding-right:16px">
+<h3 class="text-primary" style="color:black" > <u>Department Register Form</u> </h3>
+<form method="POST">
+    {% csrf_token %}
+    <div class="col-md-8">
+        <div class="form-group">
+            <br><br>
+                 <label>Department:</label>
+    <select name="department">
+    <option value="--select--">--select--</option>
+    <option value="Public_Health_Engineering_Department">Public Health Engineering Department</option>
+    <option value="Rural_Electrification_Corporation">Rural Electrification Corporation</option>
+    <option value="Department_of_Rural_Development">Department of Rural Development</option>
+    <option value="Department_of_Agriculture">Department of Agriculture </option>
+    <option value="Department_of_Food_and_Public_Distribution">Department of Food and Public Distribution</option>
+    <option value="Department_of_Transportation">Department of Transportation</option>
+    <option value="Clean_India_Mission">Clean India Mission </option>
+    <option value="Ministry_of_Drinking_Water">Ministry of Drinking Water</option>
+    <option value="others">Other Department</option>
+
+</select>
+            <br><br>
+            <label>Username:</label>
+            <input type="text" name="username" class="form-control" required="required">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" name="password" class="form-control" required="required"/>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Firstname:</label>
+            <input type="text" name="firstname" class="form-control" required="required"/>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Lastname:</label>
+            <input type="text" name="lastname" class="form-control" required="required"/>
+        </div>
+
+<br>
+<label>Phone no :</label>
+<input type="text" name="country code"  value="+91" size="2"/>
+<input type="text" name="phone" size="11"/> <br> <br>
+<label> E-mail:</label>
+<input type="email" id="email" name="email"/> <br>
+<br>
+<label>Address:</label>
+<br>
+<textarea cols="50" rows="3" name="address">
+</textarea>
+<br> <br>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control" ><span class="glyphicon glyphicon-save"></span>Register</button>
+        </div>
+    </div>
+    <p>Already have an account? <a href="{% url 'adlogin' %}">Sign in</a>.</p>
+</form>
+</div>
+</center>
+<br><br><br>
+{% endblock %}

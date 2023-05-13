@@ -1,0 +1,77 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+</head>
+{% extends 'base.html' %}
+{% block body %}
+<body>
+<center>
+<div class="topnav">
+  <a href="{% url 'webpage' %}">Home</a>
+    <a class="active" href="{% url 'login' %}">Login</a>
+
+    <a href="about">About</a>
+    <a href="contact">Contact</a>
+    <a href="support">Support</a>
+    <a href="terms"> Terms and Conditions </a>
+
+</div>
+<h3 class="text-primary" style="color:black" > <u>User Login Form</u> </h3>
+<form method="post" action="login">
+    {% csrf_token %}
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" required="required"/>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required="required"/>
+        </div>
+        <center><label class="text-danger">{{ msg }}</label></center>
+        <br />
+        <div class="form-group">
+            <button class="btn btn-primary form-control"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            <br><br>
+        <p> Don't have an account ? <a href="index">Sing Up</a></p>
+
+            <br><br><br><br>
+        </div>
+    </div>
+</form>
+</center>
+</body>
+{% endblock %}

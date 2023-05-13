@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="adprofile" method="post">
+<h1 align="center">Welcome to admin profile </h1>
+     <center>  <input type="search" name="search" placeholder="Search">
+        <button>Submit</button>
+          </center>
+    <a href="signout">Sign Out</a>
+        <h1 align="center">-----------------------------------------------------------------------------------------------</h1>
+
+    <h2 align="center">User List </h2>
+
+<table border="1" align="center">
+
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+    <th>Address</th>
+    <th>Aadhar Number</th>
+    <th>Remove</th>
+</tr>
+{% for i in data %}
+<tr>
+        <td align="center">{{ i.firstname }} {{ i.lastname }}</td>
+        <td align="center">{{ i.phone }}</td>
+        <td><a href="mailto:someone@example.com">{{ i.email }}</a></td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.gender }}</td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.aadharnumber }}</td>
+    <td><a href="del">Delete</a> </td>
+</tr>
+
+{% endfor %}
+</table>
+
+      <h2 align="center">Department List </h2>
+
+<table border="1" align="center">
+
+<tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Gender</th>
+    <th>Department</th>
+    <th>Remark</th>
+</tr>
+    <h1 align="center">-----------------------------------------------------------------------------------------------</h1>
+{% for i in data1 %}
+<tr>
+        <td align="center">{{ i.firstname }} {{ i.lastname }}</td>
+        <td align="center">{{ i.phone }}</td>
+        <td><a href="mailto:someone@example.com">{{ i.email }}</a></td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.department }}</td>
+    <td><a href="Report">Report</a> </td>
+</tr>
+
+{% endfor %}
+</table>
+        <h1 align="center">-----------------------------------------------------------------------------------------------</h1>
+
+    <center>
+    <h1>Complaint List</h1>
+    {% for f in  data2 %}
+
+<h4> Name: {{ f.firstname }}{{ f.lastname }}</h4>
+<h4>Address:{{f.address}}</h4>
+<img src="{{ f.file.url }}" height="200px" width="400px"/>
+<h4>Issue:{{f.issue }}</h4>
+<a href="remove">Delete</a>
+<h1>------------------------------------------------------------------------------------------------</h1>
+
+
+<br><br>
+{% endfor %}
+
+</center>
+</form>
+
+</body>
+</html>

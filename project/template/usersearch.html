@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User search</title>
+</head>
+<body>
+<form method="post" action="search">
+   {% csrf_token %}
+<h1>welcome to user search options </h1>
+  <input type="text" name="user">
+  <input type="submit">
+    {% for i in t %}
+    <h1>{{i.username}}</h1>
+    <h1>{{i.firstname}}{{i.lastname}}</h1>
+    <h1>{{i.}}</h1>
+    {% endfor %}
+</form>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+</head>
+</head>
+<body>
+<center>
+{% extends 'base.html' %}
+{% block body %}
+<div class="topnav">
+  <a  href="{% url 'webpage' %}">Home</a>
+    <a  href="{% url 'home' %}">User Home</a>
+    <a class="active" href="complaint">Register your Complaint</a>
+    <a href="about">About</a>
+    <a href="contact">Contact</a>
+    <a href="support">Support</a>
+    <a href="terms"> Terms and Conditions </a>
+
+</div>
+<form method="post" action="complaint" enctype="multipart/form-data">
+    <h3> <u>Register Your Complaint Here </u></h3>
+
+    {% csrf_token %}
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        <div class="form-group">
+<label>Incident Address:</label>
+<br><br>
+<textarea cols="50" rows="3" name="address">
+</textarea>
+<br> <br>
+        <label>Explain Issue in Brief:</label>
+<br><br>
+<textarea cols="50" rows="3" name="issue">
+</textarea>
+                  <br><br>
+                 <label>Related Department:</label>
+    <select name="department">
+    <option value="--select--">--select--</option>
+    <option value="health">Public Health Engineering Department</option>
+    <option value="electric">Rural Electrification Corporation</option>
+    <option value="rural">Department of Rural Development</option>
+    <option value="department">Department of Agriculture </option>
+    <option value="health">Department of Food and Public Distribution</option>
+    <option value="transport">Department of Transportation</option>
+    <option value="swatch">Clean India Mission </option>
+    <option value="water">Ministry of Drinking Water</option>
+    <option value="others">Other Department</option>
+
+</select>
+<br> <br><label>Attach file here </label>
+        <input type="file" name="file" class="form-control" required="required"/>
+        <br/>
+        <br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-save"></span> Submit</button>
+        </div>
+    </div>
+    </div>
+</form>
+{% endblock %}
+</center>
+</body>
+</html>
